@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+ 
+</head>
+<body>
+  <section class="flex justify-center">
+    <div class="card">
+      <form class="card-body">
+        <!-- Assistant History start -->
+        <div class="form-control flex">
+          <div class="flex w-full">
+            <div class="card rounded-box grid h-20 flex-grow place-items-center">
+              <!-- <label class="label">
+                <span class="label-text">Assistant</span>
+              </label>
+              <input id="phone-number" type="number" placeholder="Enter your number" class="input input-bordered" required /> -->
+              <button id="button-login" class="btn btn-primary">Assistant</button>
+            </div>
+            
+            <div class="card rounded-box grid h-20 flex-grow place-items-center">
+              <!-- <label class="label">
+                <span class="label-text">History</span>
+              </label>
+              <input id="phone-number" type="number" placeholder="Enter your number" class="input input-bordered ml-6" required /> -->
+              <button id="button-login" class="btn btn-primary">History</button>
+            </div>
+          </div>
+        </div>
+<!-- Assistant History end -->
+ <!-- Income start -->
+ <div class="form-control">
+  <div class="flex">
+    <div class="card rounded-box grid h-20 w-5 flex-grow">
+      <label class="label">
+        <span class="label-text">Income</span>
+      </label>
+      <input id="inCome" type="number" placeholder="Income" class="input input-bordered" required />
+    </div>
+  </div>
+</div>
+        <!-- Income end -->
+<!-- software courses start -->
+        <div class="form-control flex">
+          <div class="flex w-full">
+            <div class="card rounded-box grid h-20 flex-grow place-items-center">
+              <label class="label">
+                <span class="label-text">software</span>
+              </label>
+              <input id="software" type="number" placeholder="software" class="input input-bordered" required />
+            </div>
+            
+            <div class="card rounded-box grid h-20 flex-grow place-items-center">
+              <label class="label">
+                <span class="label-text">courses</span>
+              </label>
+              <input id="courses" type="number" placeholder="courses" class="input input-bordered ml-6" required />
+            </div>
+          </div>
+        </div>
+<!-- software courses end -->
+<!-- Internet start -->
+        <div class="form-control">
+          <div class="flex">
+            <div class="card rounded-box grid h-20 w-5 flex-grow">
+              <label class="label">
+                <span class="label-text">Internetr</span>
+              </label>
+              <input id="Internet" type="number" placeholder="Internet" class="input input-bordered" required />
+            </div>
+          </div>
+        </div>
+<!--  Internet end -->
+  <!-- Calculate start -->
+        <div class="form-control mt-6">
+          <button id="calculate" class="btn btn-primary" type="button">Calculate</button>
+        </div>
+        <!-- Calculate end -->
+          <!-- Saving start -->
+          <div class="form-control">
+            <div class="flex w-full">
+              <div class="card rounded-box grid h-20 w-5 flex-grow">
+                <label class="label">
+                  <span class="label-text">Saving </span>
+                </label>
+                <input id="Saving" type="number" placeholder="Saving " class="input input-bordered" required />
+              </div>
+            </div>
+          </div>
+        <!-- Saving end -->
+         <!--Calculate Saving start -->
+        <div class="form-control mt-6">
+          <button id="CalculateSaving" class="btn btn-primary" type="button">Calculate Saving</button>
+        </div>
+        <!--Calculate Saving end -->
+
+
+        <!-- results Summary start -->
+         <div id="result" class=" ">
+          <h1>results Summary</h1>
+          <div class="flex w-full ">
+            <div class="card bg-orange-100 rounded-box grid h-20 flex-grow place-items-center">
+              <p>total Expenses</p>
+              <p>
+                $
+                <span id="total-expenses">00</span>
+              </p>
+            </div>
+            
+            <div class="card bg-orange-100 ml-5 rounded-box grid h-20 flex-grow place-items-center">
+              <p>Balance</p>
+              <p>
+                $
+                <span id="balance">00</span>
+              </p>
+            </div>           
+          </div>
+
+<!-- Calculate Saving -->
+          <div class="flex w-full  mt-6">
+            <div class="card bg-orange-100 rounded-box grid h-20 flex-grow place-items-center">
+              <p>Saving Amount</p>
+
+              <p>
+                $
+                <span id="saving-Amount">00</span>
+              </p>
+            </div>
+            
+            <div class="card bg-orange-100 ml-5 rounded-box grid h-20 flex-grow place-items-center">
+              <p>Remaining</p>
+              <p>
+                $
+                <span id="Remaining">00</span>
+              </p>
+            </div>           
+          </div>
+         </div>
+         <!-- results Summary end -->
+        
+      </form>
+    </div>
+  </section>
+  
+  
+
+
+
+  <script>
+  
+
+    
+  const calculateButton = document.getElementById("calculate")
+  calculateButton.addEventListener('click',function(){
+    const income = parseFloat(document.getElementById("inCome").value)
+    const softWare = parseFloat(document.getElementById("software").value)
+    const couRses = parseFloat(document.getElementById("courses").value)
+    const interNet = parseFloat(document.getElementById("Internet").value)
+    // console.log({income,softWare,couRses,interNet})
+    // console.table({income,softWare,couRses,interNet})
+
+
+    // total calculation
+const totalExpenses = softWare + couRses + interNet
+// baki tk calculation
+const balance = income - totalExpenses
+// console.log(totalExpenses,balance)
+
+//  results Summary total total Expenses
+// totalExpenses
+const totalExpensesElement = document.getElementById("total-expenses")
+totalExpensesElement.innerText = totalExpenses.toFixed(2)
+// balance
+const balanceElement = document.getElementById("balance")
+balanceElement.innerText = balance.toFixed(2)
+// result hidden
+const resuLts= document.getElementById("result")
+  resuLts.classList.remove("hidden")
+
+  })
+
+ // Calculate-Saving button start
+ const savingButton = document.getElementById("CalculateSaving")
+ calculateButton.addEventListener('click',function(){
+  const savingPercentace = parseFloat(document.getElementById("Saving").value)
+
+  const income = parseFloat(document.getElementById("inCome").value)
+    const softWare = parseFloat(document.getElementById("software").value)
+    const couRses = parseFloat(document.getElementById("courses").value)
+    const interNet = parseFloat(document.getElementById("Internet").value)
+  console.log(income,softWare,couRses,interNet,savingPercentace)
+    const totalExpenses = softWare + couRses + interNet
+    const balance = income - totalExpenses
+    console.log(balance)
+
+
+    
+
+    const savingAmount = (savingPercentace * balance) / 100
+  console.log(savingAmount)
+
+  const savingElement = document.getElementById("saving-Amount")
+  savingElement.innerText = savingAmount.toFixed(2)
+})
+  // Calculate-Saving button start
+  // const calculateSaving = document.getElementById("CalculateSaving")
+  // calculateSaving.addEventListener('click',function(){
+  //   const savingPercentace = parseFloat(document.getElementById("Saving").value)
+
+    // const income = parseFloat(document.getElementById("inCome").value)
+    // const softWare = parseFloat(document.getElementById("software").value)
+    // const couRses = parseFloat(document.getElementById("courses").value)
+    // const interNet = parseFloat(document.getElementById("Internet").value)
+
+
+
+// totalExpensesElement.innerText = totalExpenses.toFixed(2)
+// console.log(savingPercentace)
+
+// const totalExpenses = softWare + couRses + interNet
+// baki tk calculation
+// const balance = income - totalExpenses
+
+// const savingAmount = (savingPercentace * balance)/10
+// console.log(savingAmount)
+  // })
+
+  </script>
+
+</body>
+</html>  
